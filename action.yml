@@ -1,0 +1,12 @@
+name: "Create .npmrc"
+description: "Creates an .npmrc file for npm"
+inputs:
+  registries:
+    description: "NPM registry URLs and their auth tokens"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        echo "${{ inputs.registries }}" > .npmrc
+      shell: bash
